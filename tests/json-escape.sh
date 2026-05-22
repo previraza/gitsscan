@@ -2,9 +2,10 @@
 set -Eeuo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-TMP_DIR='/tmp/gitss-quote-"dir'
+BASE_TMP="$(mktemp -d)"
+TMP_DIR="$BASE_TMP/gitss-quote-\"dir"
 mkdir -p "$TMP_DIR"
-trap 'rm -rf "$TMP_DIR"' EXIT
+trap 'rm -rf "$BASE_TMP"' EXIT
 
 out="$("$ROOT"/bin/gitss "$TMP_DIR" --json)"
 
