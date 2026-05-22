@@ -3,6 +3,7 @@ set -Eeuo pipefail
 
 PREFIX="/usr/local"
 BIN_PATH="$PREFIX/bin/gitss"
+LIB_DIR="$PREFIX/lib/gitss"
 
 for arg in "$@"; do
   case "$arg" in
@@ -30,6 +31,14 @@ if [[ -w "$BIN_PATH" ]]; then
   rm -f "$BIN_PATH"
 else
   sudo rm -f "$BIN_PATH"
+fi
+
+if [[ -d "$LIB_DIR" ]]; then
+  if [[ -w "$LIB_DIR" ]]; then
+    rm -rf "$LIB_DIR"
+  else
+    sudo rm -rf "$LIB_DIR"
+  fi
 fi
 
 echo "Uninstalled: $BIN_PATH"

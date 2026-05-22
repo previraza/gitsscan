@@ -1,7 +1,21 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-GITSS_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+if [[ -z "${GITSS_ROOT:-}" ]]; then
+  # Dev mode: repo layout.
+  if [[ -d "$SCRIPT_DIR/../lib" ]]; then
+    GITSS_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+  # Installed mode: libs live in /usr/local/lib/gitss by default.
+  elif [[ -d "/usr/local/lib/gitss/lib" ]]; then
+    GITSS_ROOT="/usr/local/lib/gitss"
+  else
+    printf 'Error: cannot locate GitSScan lib directory. Reinstall with install.sh.\n' >&2
+    exit 1
+  fi
+fi
+
 # shellcheck source=lib/core.sh
 source "$GITSS_ROOT/lib/core.sh"
 # shellcheck source=lib/cli.sh

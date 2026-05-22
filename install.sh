@@ -3,6 +3,7 @@ set -Eeuo pipefail
 
 PREFIX="/usr/local"
 BIN_DIR="$PREFIX/bin"
+LIB_DIR="$PREFIX/lib/gitss"
 INSTALL_NAME="gitss"
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SOURCE_BIN="$PROJECT_DIR/bin/gitss"
@@ -48,6 +49,18 @@ done
   exit 1
 }
 
+install_libs() {
+  if [[ ! -w "$PREFIX/lib" ]]; then
+    sudo mkdir -p "$LIB_DIR"
+    sudo rm -rf "$LIB_DIR/lib"
+    sudo cp -R "$PROJECT_DIR/lib" "$LIB_DIR/lib"
+  else
+    mkdir -p "$LIB_DIR"
+    rm -rf "$LIB_DIR/lib"
+    cp -R "$PROJECT_DIR/lib" "$LIB_DIR/lib"
+  fi
+}
+
 if [[ ! -w "$BIN_DIR" ]]; then
   echo "Installing to $BIN_DIR requires elevated permissions."
   sudo mkdir -p "$BIN_DIR"
@@ -56,6 +69,8 @@ else
   mkdir -p "$BIN_DIR"
   install -m 0755 "$SOURCE_BIN" "$BIN_DIR/$INSTALL_NAME"
 fi
+
+install_libs
 
 echo "Installed: $BIN_DIR/$INSTALL_NAME"
 "$BIN_DIR/$INSTALL_NAME" --version || true

@@ -14,7 +14,7 @@ contents:
     file_info:
       mode: 0755
   - src: ./lib
-    dst: /usr/local/lib/gitss
+    dst: /usr/local/lib/gitss/lib
   - src: ./completions/gitss.bash
     dst: /etc/bash_completion.d/gitss
 scripts:
