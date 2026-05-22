@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+
+GITSS_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+# shellcheck source=lib/core.sh
+source "$GITSS_ROOT/lib/core.sh"
+# shellcheck source=lib/cli.sh
+source "$GITSS_ROOT/lib/cli.sh"
+# shellcheck source=lib/scanner.sh
+source "$GITSS_ROOT/lib/scanner.sh"
+# shellcheck source=lib/git_ops.sh
+source "$GITSS_ROOT/lib/git_ops.sh"
+# shellcheck source=lib/output.sh
+source "$GITSS_ROOT/lib/output.sh"
+
+main "$@"

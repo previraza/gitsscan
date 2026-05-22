@@ -1,0 +1,8 @@
+{
+  "version": "3.0.0",
+  "target": "/var/www",
+  "summary": {"displayed": 3, "clean": 1, "dirty": 1, "pending_files": 12, "no_git": 1},
+  "projects": [
+    {"path": "/var/www/api", "relative_path": "api", "status": "DIRTY", "pending": 12}
+  ]
+}

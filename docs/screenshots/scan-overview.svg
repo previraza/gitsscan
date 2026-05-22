@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+  <rect width="1200" height="520" fill="#0f172a"/>
+  <text x="36" y="52" fill="#e2e8f0" font-family="Menlo, Consolas, monospace" font-size="26">$ gitss /var/www --summary</text>
+  <text x="36" y="110" fill="#94a3b8" font-family="Menlo, Consolas, monospace" font-size="22">----------------------------------------------</text>
+  <text x="36" y="150" fill="#e2e8f0" font-family="Menlo, Consolas, monospace" font-size="22">Summary:</text>
+  <text x="36" y="188" fill="#22c55e" font-family="Menlo, Consolas, monospace" font-size="22">  Clean: 12</text>
+  <text x="36" y="226" fill="#f59e0b" font-family="Menlo, Consolas, monospace" font-size="22">  Dirty: 4</text>
+  <text x="36" y="264" fill="#f59e0b" font-family="Menlo, Consolas, monospace" font-size="22">  Pending files: 37</text>
+  <text x="36" y="302" fill="#ef4444" font-family="Menlo, Consolas, monospace" font-size="22">  No Git: 2</text>
+  <text x="36" y="340" fill="#38bdf8" font-family="Menlo, Consolas, monospace" font-size="22">  Action errors: 0</text>
+  <text x="36" y="388" fill="#94a3b8" font-family="Menlo, Consolas, monospace" font-size="22">----------------------------------------------</text>
+</svg>

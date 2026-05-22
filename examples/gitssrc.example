@@ -1,0 +1,7 @@
+# ~/.gitssrc example
+TARGET_DIR="$HOME/projects"
+FILES_LIST="limit"
+FILES_LIMIT=8
+SHOW_BRANCH=true
+SHOW_AHEAD=true
+SAFE_MODE=true

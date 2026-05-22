@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620">
+  <rect width="1200" height="620" fill="#111827"/>
+  <text x="30" y="50" fill="#e5e7eb" font-family="Menlo, Consolas, monospace" font-size="24">$ gitss /var/www --dirty --files-list=5 --branch --ahead</text>
+  <text x="30" y="110" fill="#fbbf24" font-family="Menlo, Consolas, monospace" font-size="23">● api-service (services/api) 12 PENDING</text>
+  <text x="70" y="146" fill="#93c5fd" font-family="Menlo, Consolas, monospace" font-size="21">branch: main</text>
+  <text x="70" y="178" fill="#93c5fd" font-family="Menlo, Consolas, monospace" font-size="21">remote: ↑2 ↓0</text>
+  <text x="70" y="210" fill="#d1d5db" font-family="Menlo, Consolas, monospace" font-size="21">M src/routes/users.ts</text>
+  <text x="70" y="242" fill="#d1d5db" font-family="Menlo, Consolas, monospace" font-size="21">M package.json</text>
+  <text x="70" y="274" fill="#d1d5db" font-family="Menlo, Consolas, monospace" font-size="21">M Dockerfile</text>
+  <text x="70" y="306" fill="#9ca3af" font-family="Menlo, Consolas, monospace" font-size="21">... +9 more files. Use -fl for all.</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680">
+  <rect width="1200" height="680" fill="#020617"/>
+  <text x="24" y="44" fill="#e2e8f0" font-family="Menlo, Consolas, monospace" font-size="23">$ gitss /var/www --json</text>
+  <text x="24" y="86" fill="#67e8f9" font-family="Menlo, Consolas, monospace" font-size="20">{</text>
+  <text x="44" y="118" fill="#cbd5e1" font-family="Menlo, Consolas, monospace" font-size="20">"version": "3.0.0",</text>
+  <text x="44" y="150" fill="#cbd5e1" font-family="Menlo, Consolas, monospace" font-size="20">"target": "/var/www",</text>
+  <text x="44" y="182" fill="#cbd5e1" font-family="Menlo, Consolas, monospace" font-size="20">"summary": {"displayed": 3, "clean": 1, "dirty": 1, "pending_files": 12, "no_git": 1},</text>
+  <text x="44" y="214" fill="#cbd5e1" font-family="Menlo, Consolas, monospace" font-size="20">"projects": [</text>
+  <text x="64" y="246" fill="#cbd5e1" font-family="Menlo, Consolas, monospace" font-size="20">{"path": "/var/www/api", "relative_path": "api", "status": "DIRTY", "pending": 12}</text>
+  <text x="44" y="278" fill="#cbd5e1" font-family="Menlo, Consolas, monospace" font-size="20">]</text>
+  <text x="24" y="310" fill="#67e8f9" font-family="Menlo, Consolas, monospace" font-size="20">}</text>
+</svg>
