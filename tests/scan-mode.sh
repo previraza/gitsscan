@@ -28,7 +28,7 @@ mkdir -p "$SCAN/webapp" "$SCAN/gorepo"
   git commit -m "init" >/dev/null
 )
 
-web_json="$($ROOT/bin/gitss "$SCAN" --scan-mode=web --json)"
+web_json="$("$ROOT"/bin/gitss "$SCAN" --scan-mode=web --json)"
 if ! printf '%s' "$web_json" | grep -q '"path": ".*webapp"'; then
   echo "expected web mode to include webapp"
   echo "$web_json"
@@ -40,7 +40,7 @@ if printf '%s' "$web_json" | grep -q '"path": ".*gorepo"'; then
   exit 1
 fi
 
-git_json="$($ROOT/bin/gitss "$SCAN" --scan-mode=git --json)"
+git_json="$("$ROOT"/bin/gitss "$SCAN" --scan-mode=git --json)"
 if ! printf '%s' "$git_json" | grep -q '"path": ".*webapp"'; then
   echo "expected git mode to include webapp"
   echo "$git_json"
@@ -52,7 +52,7 @@ if ! printf '%s' "$git_json" | grep -q '"path": ".*gorepo"'; then
   exit 1
 fi
 
-mixed_json="$($ROOT/bin/gitss "$SCAN" --json)"
+mixed_json="$("$ROOT"/bin/gitss "$SCAN" --json)"
 if ! printf '%s' "$mixed_json" | grep -q '"path": ".*webapp"'; then
   echo "expected default mixed mode to include webapp"
   echo "$mixed_json"

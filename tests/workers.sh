@@ -28,8 +28,8 @@ mkdir -p "$SCAN/a" "$SCAN/b"
   git commit -m "init" >/dev/null
 )
 
-j1="$($ROOT/bin/gitss "$SCAN" --scan-mode=git --workers=1 --json)"
-j4="$($ROOT/bin/gitss "$SCAN" --scan-mode=git --workers=4 --json)"
+j1="$("$ROOT"/bin/gitss "$SCAN" --scan-mode=git --workers=1 --json)"
+j4="$("$ROOT"/bin/gitss "$SCAN" --scan-mode=git --workers=4 --json)"
 
 for key in '"displayed": 2' '"clean": 2' '"dirty": 0' '"no_git": 0'; do
   if ! printf '%s' "$j1" | grep -q "$key"; then
