@@ -45,8 +45,8 @@ $ gitss /var/www --dirty --files-list=5 --branch --ahead
 ### Quick install
 
 ```bash
-git clone https://github.com/gitsscan/gitss.git
-cd gitss
+git clone https://github.com/previraza/gitsscan.git
+cd gitsscan
 ./install.sh
 ```
 
