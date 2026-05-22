@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2034
 
-VERSION="3.0.0"
+VERSION="3.0.1"
 PROJECT_NAME="GitSScan"
 
 TARGET_DIR="."

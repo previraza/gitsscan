@@ -2,6 +2,20 @@
 
 All notable changes to this project are documented in this file.
 
+## [3.0.1] - 2026-05-22
+
+### Added
+- Automated GitHub Releases workflow (tag-driven) with `.tar.gz`, checksums and `.deb` packaging.
+- Distribution docs (GitHub releases, Homebrew tap flow, Debian `.deb` via `nfpm`).
+- Local formatter script `scripts/fmt.sh` aligned with CI (`shfmt -i 2`).
+
+### Changed
+- CI now ignores release tags and runs on `main` only; updated to `actions/checkout@v5`.
+
+### Fixed
+- Ignore build artifacts in `dist/`.
+- ShellCheck warnings in modular globals and tests; hardened scanner guard for disappearing target dirs.
+
 ## [3.0.0] - 2026-05-22
 
 ### Added
