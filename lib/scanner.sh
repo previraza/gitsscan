@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 build_find_cmd() {
+  [[ -d "$TARGET_DIR" ]] || return 0
+
   if [[ "$SCAN_MODE" == "git" ]]; then
     find "$TARGET_DIR" \
       -type d \( -name node_modules -o -name vendor -o -name .next -o -name dist -o -name build -o -name coverage -o -name .turbo \) -prune -o \

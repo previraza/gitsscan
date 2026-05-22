@@ -47,7 +47,7 @@ repo_branch() {
 repo_ahead_behind() {
   local repo="$1"
   local upstream ahead behind
-  upstream="$(git -C "$repo" rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null || true)"
+  upstream="$(git -C "$repo" rev-parse --abbrev-ref --symbolic-full-name "@{u}" 2>/dev/null || true)"
   if [[ -n "$upstream" ]]; then
     ahead="$(git -C "$repo" rev-list --count "$upstream"..HEAD 2>/dev/null || printf '0')"
     behind="$(git -C "$repo" rev-list --count HEAD.."$upstream" 2>/dev/null || printf '0')"

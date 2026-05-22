@@ -16,7 +16,7 @@ mkdir -p "$TMP/repo"
   git commit -m init >/dev/null
 )
 
-out="$($ROOT/scripts/bench-workers.sh "$TMP" mixed)"
+out="$("$ROOT"/scripts/bench-workers.sh "$TMP" mixed)"
 if ! printf '%s' "$out" | grep -q 'workers'; then
   echo "expected benchmark header"
   echo "$out"
