@@ -13,7 +13,7 @@ mkdir -p "$SCAN/webapp" "$SCAN/gorepo"
   git init >/dev/null
   git config user.name "t"
   git config user.email "t@e"
-  echo '{"name":"webapp"}' > package.json
+  echo '{"name":"webapp"}' >package.json
   git add package.json
   git commit -m "init" >/dev/null
 )
@@ -23,7 +23,7 @@ mkdir -p "$SCAN/webapp" "$SCAN/gorepo"
   git init >/dev/null
   git config user.name "t"
   git config user.email "t@e"
-  echo 'package main' > main.go
+  echo 'package main' >main.go
   git add main.go
   git commit -m "init" >/dev/null
 )

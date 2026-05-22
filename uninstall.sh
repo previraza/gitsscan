@@ -6,15 +6,18 @@ BIN_PATH="$PREFIX/bin/gitss"
 
 for arg in "$@"; do
   case "$arg" in
-    --prefix=*) PREFIX="${arg#*=}"; BIN_PATH="$PREFIX/bin/gitss" ;;
-    -h|--help)
-      echo "Usage: ./uninstall.sh [--prefix=/custom/path]"
-      exit 0
-      ;;
-    *)
-      echo "Unknown option: $arg"
-      exit 1
-      ;;
+  --prefix=*)
+    PREFIX="${arg#*=}"
+    BIN_PATH="$PREFIX/bin/gitss"
+    ;;
+  -h | --help)
+    echo "Usage: ./uninstall.sh [--prefix=/custom/path]"
+    exit 0
+    ;;
+  *)
+    echo "Unknown option: $arg"
+    exit 1
+    ;;
   esac
 done
 

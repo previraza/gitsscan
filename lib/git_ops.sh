@@ -6,24 +6,24 @@ run_repo_actions() {
 
   if [[ "$DO_FETCH" == true ]] && ! run_cmd git -C "$repo" fetch --all --prune; then
     warn "fetch failed for $repo"
-    ((ACTION_ERRORS+=1))
+    ((ACTION_ERRORS += 1))
     return
   fi
   if [[ "$DO_PULL" == true ]] && ! run_cmd git -C "$repo" pull --ff-only; then
     warn "pull failed for $repo"
-    ((ACTION_ERRORS+=1))
+    ((ACTION_ERRORS += 1))
     return
   fi
 
   if [[ "$DO_COMMIT" == true && "$status" == "DIRTY" ]]; then
     if ! run_cmd git -C "$repo" add -A; then
       warn "git add failed for $repo"
-      ((ACTION_ERRORS+=1))
+      ((ACTION_ERRORS += 1))
       return
     fi
     if ! run_cmd git -C "$repo" commit -m "$COMMIT_MSG"; then
       warn "commit failed for $repo"
-      ((ACTION_ERRORS+=1))
+      ((ACTION_ERRORS += 1))
       return
     fi
   fi
@@ -32,7 +32,7 @@ run_repo_actions() {
     if confirm_action "Push changes for $repo?"; then
       if ! run_cmd git -C "$repo" push; then
         warn "push failed for $repo"
-        ((ACTION_ERRORS+=1))
+        ((ACTION_ERRORS += 1))
       fi
     else
       printf '    Skip push for %s\n' "$repo"

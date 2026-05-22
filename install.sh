@@ -9,7 +9,10 @@ SOURCE_BIN="$PROJECT_DIR/bin/gitss"
 
 require_cmd() {
   local cmd="$1"
-  command -v "$cmd" >/dev/null 2>&1 || { echo "Missing dependency: $cmd"; exit 1; }
+  command -v "$cmd" >/dev/null 2>&1 || {
+    echo "Missing dependency: $cmd"
+    exit 1
+  }
 }
 
 usage() {
@@ -20,9 +23,19 @@ USAGE
 
 for arg in "$@"; do
   case "$arg" in
-    --prefix=*) PREFIX="${arg#*=}"; BIN_DIR="$PREFIX/bin" ;;
-    -h|--help) usage; exit 0 ;;
-    *) echo "Unknown option: $arg"; usage; exit 1 ;;
+  --prefix=*)
+    PREFIX="${arg#*=}"
+    BIN_DIR="$PREFIX/bin"
+    ;;
+  -h | --help)
+    usage
+    exit 0
+    ;;
+  *)
+    echo "Unknown option: $arg"
+    usage
+    exit 1
+    ;;
   esac
 done
 
@@ -30,7 +43,10 @@ for cmd in bash git find du wc tr sed head awk dirname basename install; do
   require_cmd "$cmd"
 done
 
-[[ -x "$SOURCE_BIN" ]] || { echo "Source binary not found: $SOURCE_BIN"; exit 1; }
+[[ -x "$SOURCE_BIN" ]] || {
+  echo "Source binary not found: $SOURCE_BIN"
+  exit 1
+}
 
 if [[ ! -w "$BIN_DIR" ]]; then
   echo "Installing to $BIN_DIR requires elevated permissions."

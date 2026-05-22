@@ -20,8 +20,8 @@ mkdir -p "$REPO"
   git config user.email "gitss@example.test"
   git remote add origin "$REMOTE"
 
-  echo '{"name":"app"}' > package.json
-  echo "v1" > file.txt
+  echo '{"name":"app"}' >package.json
+  echo "v1" >file.txt
   git add -A
   git commit -m "init" >/dev/null
   git branch -M main
@@ -32,7 +32,7 @@ remote_head_before="$(git --git-dir="$REMOTE" rev-parse refs/heads/main)"
 
 (
   cd "$REPO"
-  echo "v2" >> file.txt
+  echo "v2" >>file.txt
 )
 
 "$ROOT/bin/gitss" "$SCAN_ROOT" --dirty --commit="GitSScan integration" --push --unsafe --summary >/tmp/gitss-commit-push-unsafe.out 2>/tmp/gitss-commit-push-unsafe.err
@@ -45,7 +45,7 @@ fi
 
 (
   cd "$REPO"
-  echo "v3" >> file.txt
+  echo "v3" >>file.txt
 )
 
 set +e

@@ -32,7 +32,7 @@ chmod +x "$STAGE_DIR/bin/gitss" "$STAGE_DIR/install.sh" "$STAGE_DIR/uninstall.sh
   tar -czf "${PKG_NAME}.tar.gz" "$PKG_NAME"
 )
 
-sha256sum "$DIST_DIR/${PKG_NAME}.tar.gz" > "$DIST_DIR/${PKG_NAME}.tar.gz.sha256"
+sha256sum "$DIST_DIR/${PKG_NAME}.tar.gz" >"$DIST_DIR/${PKG_NAME}.tar.gz.sha256"
 
 echo "Built: $DIST_DIR/${PKG_NAME}.tar.gz"
 echo "Built: $DIST_DIR/${PKG_NAME}.tar.gz.sha256"

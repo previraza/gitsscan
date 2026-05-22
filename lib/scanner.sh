@@ -28,24 +28,24 @@ collect_projects() {
 
   while IFS= read -r file; do
     project_dir="$(dirname "$file")"
-    printf '%s\n' "$project_dir" >> "$work_file"
+    printf '%s\n' "$project_dir" >>"$work_file"
   done < <(build_find_cmd)
 
   if [[ "$WORKERS" -le 1 ]]; then
     while IFS= read -r project_dir; do
-      analyze_project_dir "$project_dir" >> "$result_file"
-    done < "$work_file"
+      analyze_project_dir "$project_dir" >>"$result_file"
+    done <"$work_file"
   else
     while IFS= read -r project_dir; do
       (
         analyze_project_dir "$project_dir"
-      ) >> "$result_file" &
-      ((active_jobs+=1))
+      ) >>"$result_file" &
+      ((active_jobs += 1))
       if [[ "$active_jobs" -ge "$WORKERS" ]]; then
         wait -n
-        ((active_jobs-=1))
+        ((active_jobs -= 1))
       fi
-    done < "$work_file"
+    done <"$work_file"
     wait
   fi
 
@@ -77,32 +77,35 @@ parse_results() {
   while IFS= read -r line; do
     [[ -z "$line" ]] && continue
     kind="${line%%|*}"
-    display_dir="${line#*|}"; display_dir="${display_dir%%|*}"
-    status="${line#*|}"; status="${status#*|}"; status="${status%%|*}"
+    display_dir="${line#*|}"
+    display_dir="${display_dir%%|*}"
+    status="${line#*|}"
+    status="${status#*|}"
+    status="${status%%|*}"
     mod_count="${line##*|}"
 
     if [[ "$kind" == "GIT" ]]; then
       [[ -n "${SEEN_GIT_ROOTS[$display_dir]:-}" ]] && continue
       SEEN_GIT_ROOTS["$display_dir"]=1
       if [[ "$status" == "DIRTY" ]]; then
-        ((DIRTY_COUNT+=1))
-        ((PENDING_FILES_TOTAL+=mod_count))
+        ((DIRTY_COUNT += 1))
+        ((PENDING_FILES_TOTAL += mod_count))
       else
-        ((CLEAN_COUNT+=1))
+        ((CLEAN_COUNT += 1))
       fi
     else
       [[ -n "${SEEN_NO_GIT_DIRS[$display_dir]:-}" ]] && continue
       SEEN_NO_GIT_DIRS["$display_dir"]=1
-      ((NOGIT_COUNT+=1))
+      ((NOGIT_COUNT += 1))
     fi
 
     case "$MODE" in
-      --dirty) [[ "$status" != "DIRTY" ]] && continue ;;
-      --clean) [[ "$status" != "CLEAN" ]] && continue ;;
-      --no-git) [[ "$status" != "NO_GIT" ]] && continue ;;
+    --dirty) [[ "$status" != "DIRTY" ]] && continue ;;
+    --clean) [[ "$status" != "CLEAN" ]] && continue ;;
+    --no-git) [[ "$status" != "NO_GIT" ]] && continue ;;
     esac
 
     SCAN_RESULTS+=("$display_dir|$status|$mod_count")
-    ((TOTAL_DISPLAYED+=1))
-  done < "$result_file"
+    ((TOTAL_DISPLAYED += 1))
+  done <"$result_file"
 }

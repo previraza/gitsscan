@@ -24,7 +24,7 @@ jobs:
         run: shellcheck bin/gitss lib/*.sh install.sh uninstall.sh scripts/*.sh tests/*.sh
 
       - name: Formatting check
-        run: shfmt -d bin/gitss lib/*.sh install.sh uninstall.sh scripts/*.sh tests/*.sh
+        run: shfmt -d -i 2 bin/gitss lib/*.sh install.sh uninstall.sh scripts/*.sh tests/*.sh
 
       - name: Smoke tests
         run: |

@@ -11,7 +11,7 @@ mkdir -p "$TMP/repo"
   git init >/dev/null
   git config user.name "t"
   git config user.email "t@e"
-  echo '{"name":"repo"}' > package.json
+  echo '{"name":"repo"}' >package.json
   git add package.json
   git commit -m init >/dev/null
 )
