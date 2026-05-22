@@ -31,4 +31,6 @@ jobs:
           ./tests/scan-mode.sh
           ./tests/workers.sh
           ./tests/bench-script.sh
+          ./tests/release-assets.sh
+          ./tests/homebrew-formula.sh
           ./tests/commit-push.sh

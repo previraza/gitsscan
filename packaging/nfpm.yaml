@@ -1,0 +1,22 @@
+name: gitss
+arch: amd64
+platform: linux
+version: ${VERSION}
+section: utils
+priority: optional
+maintainer: previraza <opensource@previraza.dev>
+description: GitSScan CLI - scan repositories and inspect Git status at scale.
+homepage: https://github.com/previraza/gitsscan
+license: MIT
+contents:
+  - src: ./bin/gitss
+    dst: /usr/local/bin/gitss
+    file_info:
+      mode: 0755
+  - src: ./lib
+    dst: /usr/local/lib/gitss
+  - src: ./completions/gitss.bash
+    dst: /etc/bash_completion.d/gitss
+scripts:
+  postinstall: ./packaging/scripts/postinstall.sh
+  postremove: ./packaging/scripts/postremove.sh
