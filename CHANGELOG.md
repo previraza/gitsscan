@@ -16,6 +16,11 @@ All notable changes to this project are documented in this file.
 - Ignore build artifacts in `dist/`.
 - ShellCheck warnings in modular globals and tests; hardened scanner guard for disappearing target dirs.
 
+## [3.0.2] - 2026-05-22
+
+### Fixed
+- `install.sh` now installs `lib/` under the prefix (`/usr/local/lib/gitss/lib`) and `bin/gitss` can locate it at runtime.
+
 ## [3.0.0] - 2026-05-22
 
 ### Added
